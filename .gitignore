@@ -1,0 +1,3 @@
+# Ignore Visual Studio temporary files, build results, and
+# .vs folder, which includes project settings and is not needed for version control.
+.vs/

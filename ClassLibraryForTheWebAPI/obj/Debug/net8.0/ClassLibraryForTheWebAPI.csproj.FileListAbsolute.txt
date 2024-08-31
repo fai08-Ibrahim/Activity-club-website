@@ -1,0 +1,11 @@
+C:\Users\Fathey\source\repos\WebAPIForIDS\ClassLibraryForTheWebAPI\bin\Debug\net8.0\ClassLibraryForTheWebAPI.deps.json
+C:\Users\Fathey\source\repos\WebAPIForIDS\ClassLibraryForTheWebAPI\bin\Debug\net8.0\ClassLibraryForTheWebAPI.dll
+C:\Users\Fathey\source\repos\WebAPIForIDS\ClassLibraryForTheWebAPI\bin\Debug\net8.0\ClassLibraryForTheWebAPI.pdb
+C:\Users\Fathey\source\repos\WebAPIForIDS\ClassLibraryForTheWebAPI\obj\Debug\net8.0\ClassLibraryForTheWebAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Fathey\source\repos\WebAPIForIDS\ClassLibraryForTheWebAPI\obj\Debug\net8.0\ClassLibraryForTheWebAPI.AssemblyInfoInputs.cache
+C:\Users\Fathey\source\repos\WebAPIForIDS\ClassLibraryForTheWebAPI\obj\Debug\net8.0\ClassLibraryForTheWebAPI.AssemblyInfo.cs
+C:\Users\Fathey\source\repos\WebAPIForIDS\ClassLibraryForTheWebAPI\obj\Debug\net8.0\ClassLibraryForTheWebAPI.csproj.CoreCompileInputs.cache
+C:\Users\Fathey\source\repos\WebAPIForIDS\ClassLibraryForTheWebAPI\obj\Debug\net8.0\ClassLibraryForTheWebAPI.dll
+C:\Users\Fathey\source\repos\WebAPIForIDS\ClassLibraryForTheWebAPI\obj\Debug\net8.0\refint\ClassLibraryForTheWebAPI.dll
+C:\Users\Fathey\source\repos\WebAPIForIDS\ClassLibraryForTheWebAPI\obj\Debug\net8.0\ClassLibraryForTheWebAPI.pdb
+C:\Users\Fathey\source\repos\WebAPIForIDS\ClassLibraryForTheWebAPI\obj\Debug\net8.0\ref\ClassLibraryForTheWebAPI.dll
