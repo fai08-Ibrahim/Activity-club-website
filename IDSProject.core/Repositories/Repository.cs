@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using DemoAPI.Models;
 using IDSProject.core.Repositories.IRepositories;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,11 +10,11 @@ namespace DemoProject.Core.Repositories
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        protected readonly DbContext Context;
+        protected readonly DatabaseServerContext Context; // Use your specific DbContext
 
-        public Repository(DbContext myDbContext)
+        public Repository(DatabaseServerContext context) // Update constructor to use DatabaseServerContext
         {
-            Context = myDbContext;
+            Context = context;
         }
 
         public async Task AddAsync(TEntity entity)
@@ -65,3 +66,4 @@ namespace DemoProject.Core.Repositories
         }
     }
 }
+

@@ -1,12 +1,22 @@
-using DemoAPI.Models;
-using Microsoft.Extensions.DependencyInjection;
 using IDSProject.services.Services;
+using IDSProject.core.Repositories;
+using DemoAPI.Models;
+using IDSProject.core.Repositories.IRepositories;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Register DbContext with the DI container
+builder.Services.AddDbContext<DatabaseServerContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Register repositories
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 // Register services
 builder.Services.AddControllers();
 builder.Services.AddScoped<IUserService, UserService>();
+
 
 // Add services to the container.
 builder.Services.AddSwaggerGen(c =>

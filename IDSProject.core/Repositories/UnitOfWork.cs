@@ -1,32 +1,27 @@
-﻿using IDSProject.core.Repositories;
+﻿using DemoAPI.Models;
+using IDSProject.core.Repositories;
 using IDSProject.core.Repositories.IRepositories;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
 namespace DemoProject.Core.Repositories
 {
-    public interface IUnitOfWork
-    {
-        IUserRepository Users { get; }
-        // Add other repository interfaces as needed
-
-        Task<int> CommitAsync();
-    }
-
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly DbContext _context;
+        private readonly DatabaseServerContext _context; // Use your specific DbContext
         private UserRepository? _userRepository;
 
-        public UnitOfWork(DbContext context)
+        public UnitOfWork(DatabaseServerContext context) // Update constructor to use DatabaseServerContext
         {
             _context = context;
         }
 
         public IUserRepository Users =>
-            (IUserRepository)(_userRepository ??= new UserRepository(_context));
+            _userRepository ??= new UserRepository(_context);
 
-        // Add other repositories as needed
+        UserRepository IUnitOfWork.Users => throw new NotImplementedException();
+
+        // Implement other repositories as needed
 
         public async Task<int> CommitAsync()
         {

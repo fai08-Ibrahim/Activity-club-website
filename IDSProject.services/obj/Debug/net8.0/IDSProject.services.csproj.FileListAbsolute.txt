@@ -12,10 +12,15 @@ C:\Users\Fathey\source\repos\WebAPIForIDS\IDSProject.services\obj\Debug\net8.0\r
 C:\Users\Fathey\source\repos\WebAPI\IDSProject.services\bin\Debug\net8.0\IDSProject.services.deps.json
 C:\Users\Fathey\source\repos\WebAPI\IDSProject.services\bin\Debug\net8.0\IDSProject.services.dll
 C:\Users\Fathey\source\repos\WebAPI\IDSProject.services\bin\Debug\net8.0\IDSProject.services.pdb
+C:\Users\Fathey\source\repos\WebAPI\IDSProject.services\bin\Debug\net8.0\IDSProject.core.dll
+C:\Users\Fathey\source\repos\WebAPI\IDSProject.services\bin\Debug\net8.0\IDSProject.core.pdb
+C:\Users\Fathey\source\repos\WebAPI\IDSProject.services\obj\Debug\net8.0\IDSProject.services.csproj.AssemblyReference.cache
 C:\Users\Fathey\source\repos\WebAPI\IDSProject.services\obj\Debug\net8.0\IDSProject.services.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Fathey\source\repos\WebAPI\IDSProject.services\obj\Debug\net8.0\IDSProject.services.AssemblyInfoInputs.cache
 C:\Users\Fathey\source\repos\WebAPI\IDSProject.services\obj\Debug\net8.0\IDSProject.services.AssemblyInfo.cs
 C:\Users\Fathey\source\repos\WebAPI\IDSProject.services\obj\Debug\net8.0\IDSProject.services.csproj.CoreCompileInputs.cache
+C:\Users\Fathey\source\repos\WebAPI\IDSProject.services\obj\Debug\net8.0\IDSProject.services.sourcelink.json
+C:\Users\Fathey\source\repos\WebAPI\IDSProject.services\obj\Debug\net8.0\IDSProje.CBD3A39C.Up2Date
 C:\Users\Fathey\source\repos\WebAPI\IDSProject.services\obj\Debug\net8.0\IDSProject.services.dll
 C:\Users\Fathey\source\repos\WebAPI\IDSProject.services\obj\Debug\net8.0\refint\IDSProject.services.dll
 C:\Users\Fathey\source\repos\WebAPI\IDSProject.services\obj\Debug\net8.0\IDSProject.services.pdb

@@ -590,6 +590,9 @@
         }
       },
       "IDSProject.services/1.0.0": {
+        "dependencies": {
+          "IDSProject.core": "1.0.0"
+        },
         "runtime": {
           "IDSProject.services.dll": {
             "assemblyVersion": "1.0.0",

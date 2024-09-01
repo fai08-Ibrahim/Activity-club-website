@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\IDSProject.core\IDSProject.core.csproj" />
+  </ItemGroup>
+
 </Project>
