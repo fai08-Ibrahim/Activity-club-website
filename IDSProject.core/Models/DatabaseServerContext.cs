@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System.IO;
+using IDSProject.Models;
 
-namespace DemoAPI.Models;
+namespace IDSProject.core.Models;
 
 public partial class DatabaseServerContext : DbContext
 {
@@ -32,19 +33,7 @@ public partial class DatabaseServerContext : DbContext
     public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        if (!optionsBuilder.IsConfigured)
-        {
-            var configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
-                .Build();
-
-            var connectionString = configuration.GetConnectionString("DefaultConnection");
-            optionsBuilder.UseSqlServer(connectionString);
-        }
-    }
-
+        => optionsBuilder.UseSqlServer("Server=DESKTOP-CO13J4R\\SQLEXPRESS;Database=IDSProject;User Id=fa;Password=fathy;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -73,10 +62,11 @@ public partial class DatabaseServerContext : DbContext
                 .HasMaxLength(50)
                 .HasColumnName("status");
 
-            entity.HasOne(d => d.CategoryCodeNavigation).WithMany(p => p.Events)
-                .HasForeignKey(d => d.CategoryCode)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Event__categoryC__5AEE82B9");
+            // Configure the relationship with LookUp
+            entity.HasOne(e => e.CategoryCodeNavigation)  // Navigation property
+                .WithMany()  // Assuming LookUp does not have a collection of Events
+                .HasForeignKey(e => e.CategoryCode)  // Foreign key property
+                .HasConstraintName("FK_Event_LookUp_CategoryCode");  // Optional: name the foreign key constraint
         });
 
         modelBuilder.Entity<EventGuide>(entity =>
@@ -146,13 +136,11 @@ public partial class DatabaseServerContext : DbContext
 
         modelBuilder.Entity<LookUp>(entity =>
         {
-            entity.HasKey(e => e.Code).HasName("PK__LookUp__357D4CF8CE2A367E");
+            entity.HasKey(e => e.Code).HasName("PK__LookUp__357D4CF8F0E6D5EE");
 
             entity.ToTable("LookUp");
 
-            entity.Property(e => e.Code)
-                .ValueGeneratedNever()
-                .HasColumnName("code");
+            entity.Property(e => e.Code).HasColumnName("code");
             entity.Property(e => e.Name)
                 .HasMaxLength(100)
                 .HasColumnName("name");

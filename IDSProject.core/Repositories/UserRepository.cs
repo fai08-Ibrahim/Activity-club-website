@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using DemoAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using IDSProject.core.Repositories.IRepositories;
+using IDSProject.Models;
+using IDSProject.core.Models;
 
 namespace IDSProject.core.Repositories
 {

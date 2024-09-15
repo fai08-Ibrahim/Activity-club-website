@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DemoAPI.Models;
+namespace IDSProject.Models;
 
 public partial class Member
 {

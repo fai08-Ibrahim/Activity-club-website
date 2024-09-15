@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("IDSProject")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+711818c774e5e7f50e742cd3081eb42508d5b191")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4c1bbc8200202d1a0f52ced9289784ee2b5dabf9")]
 [assembly: System.Reflection.AssemblyProductAttribute("IDSProject")]
 [assembly: System.Reflection.AssemblyTitleAttribute("IDSProject")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

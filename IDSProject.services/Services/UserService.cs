@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using DemoAPI.Models;
+using IDSProject.Models;
 using IDSProject.core.Repositories;
 using IDSProject.core.Repositories.IRepositories;
 

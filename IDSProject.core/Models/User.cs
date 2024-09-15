@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
-namespace DemoAPI.Models;
+namespace IDSProject.Models;
 
 public partial class User
 {
+    [Key]
+    public int Id { get; set; }
     public string Username { get; set; } = null!;
 
     public string Password { get; set; } = null!;
@@ -17,5 +20,4 @@ public partial class User
 
     public string? Role { get; set; }
 
-    public int Id { get; set; }
 }

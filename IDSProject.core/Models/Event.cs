@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DemoAPI.Models;
+namespace IDSProject.Models;
 
 public partial class Event
 {
@@ -22,8 +22,7 @@ public partial class Event
     public string? Status { get; set; }
 
     public int CategoryCode { get; set; }
-
-    public virtual LookUp CategoryCodeNavigation { get; set; } = null!;
+    public virtual LookUp? CategoryCodeNavigation { get; set; }
 
     public virtual ICollection<EventGuide> EventGuides { get; set; } = new List<EventGuide>();
 

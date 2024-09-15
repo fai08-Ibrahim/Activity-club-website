@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DemoAPI.Models;
+namespace IDSProject.Models;
 
 public partial class LookUp
 {
@@ -10,6 +10,4 @@ public partial class LookUp
     public string Name { get; set; } = null!;
 
     public int Order { get; set; }
-
-    public virtual ICollection<Event> Events { get; set; } = new List<Event>();
 }

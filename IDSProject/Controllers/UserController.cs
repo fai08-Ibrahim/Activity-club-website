@@ -1,8 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using DemoAPI.Models;
+using IDSProject.Models;
 using IDSProject.services.Services;
+using Microsoft.EntityFrameworkCore;
+using AutoMapper;
+using IDSProject.core.Dtos;
 
 namespace IDSProject.Controllers
 {
@@ -11,42 +14,49 @@ namespace IDSProject.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
+        private readonly IMapper _mapper;
 
-        public UserController(IUserService userService)
+        public UserController(IUserService userService, IMapper mapper)
         {
             _userService = userService;
+            _mapper = mapper;
         }
 
         [HttpGet("Get User by username")]
-        public async Task<ActionResult<User>> GetUserByUsername(string username)
+        public async Task<ActionResult<UserDto>> GetUserByUsername(string username)
         {
             var user = await _userService.GetUserByUsernameAsync(username);
             if (user == null)
             {
                 return NotFound();
             }
-            return Ok(user);
+            var userDto = _mapper.Map<UserDto>(user);
+
+            return Ok(userDto);
         }
 
         [HttpGet("Get All Users")]
-        public async Task<ActionResult<IEnumerable<User>>> GetAllUsers()
+        public async Task<ActionResult<IEnumerable<UserDto>>> GetAllUsers()
         {
             var users = await _userService.GetUsersAsync();
-            return Ok(users);
+            var userDtos = _mapper.Map<IEnumerable<UserDto>>(users);
+            return Ok(userDtos);
         }
 
         [HttpPost("Add Or Update User")]
-        public async Task<IActionResult> AddOrUpdateUser(User user)
+        public async Task<IActionResult> AddOrUpdateUser(UserDto userDto)
         {
-            if (user.Id == 0)
+            if (userDto.Id == 0)
             {
                 // New user
-                var existingUser = await _userService.GetUserByUsernameAsync(user.Username);
+                var existingUser = await _userService.GetUserByUsernameAsync(userDto.Username);
                 if (existingUser != null)
                 {
                     // Username already exists
                     return Conflict("A user with this username already exists.");
                 }
+                // Map UserDto to User entity
+                var user = _mapper.Map<User>(userDto);
 
                 await _userService.AddOrUpdateUserAsync(user);
                 return Ok("User was added successfully");
@@ -54,7 +64,7 @@ namespace IDSProject.Controllers
             else
             {
                 // Existing user
-                var existingUser = await _userService.GetByUserIdAsync(user.Id);
+                var existingUser = await _userService.GetByUserIdAsync(userDto.Id);
                 if (existingUser == null)
                 {
                     // User ID does not exist
@@ -62,15 +72,17 @@ namespace IDSProject.Controllers
                 }
 
                 // Optionally check if the username is being changed and if the new username is unique
-                if (existingUser.Username != user.Username)
+                if (existingUser.Username != userDto.Username)
                 {
-                    var usernameExists = await _userService.GetUserByUsernameAsync(user.Username);
+                    var usernameExists = await _userService.GetUserByUsernameAsync(userDto.Username);
                     if (usernameExists != null)
                     {
                         // New username already exists
                         return Conflict("A user with this username already exists.");
                     }
                 }
+                // Map UserDto to User entity
+                var user = _mapper.Map<User>(userDto);
 
                 await _userService.AddOrUpdateUserAsync(user);
                 return Ok("User was updated successfully");

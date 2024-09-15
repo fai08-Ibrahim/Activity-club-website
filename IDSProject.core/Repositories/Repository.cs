@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using DemoAPI.Models;
+using IDSProject.core.Models;
 using IDSProject.core.Repositories.IRepositories;
 using Microsoft.EntityFrameworkCore;
 
