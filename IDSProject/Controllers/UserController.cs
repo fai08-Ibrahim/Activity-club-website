@@ -6,11 +6,13 @@ using IDSProject.services.Services;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper;
 using IDSProject.core.Dtos;
+using Microsoft.AspNetCore.Authorization;
 
 namespace IDSProject.Controllers
 {
-    [ApiController]
     [Route("api/[controller]")]
+    [ApiController]
+    [Authorize]
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;

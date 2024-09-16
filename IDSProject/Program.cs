@@ -9,6 +9,10 @@ using IDSProject.Services;
 using IDSProject.core.Models;
 using IDSProject.Mapping;
 using System.Text.Json.Serialization;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.Text;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,6 +44,23 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 // Configure AutoMapper
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
+// Authorization
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.SaveToken = true;
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = false,
+            ValidateAudience = false,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+        };
+    });
+
 // Configure Swagger
 builder.Services.AddSwaggerGen(c =>
 {
@@ -59,6 +80,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 

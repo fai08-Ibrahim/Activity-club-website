@@ -1,3 +1,11 @@
 # Ignore Visual Studio temporary files, build results, and
 # .vs folder, which includes project settings and is not needed for version control.
 .vs/
+
+# Ignore configuration files that contain sensitive information
+**/appsettings.json
+**/appsettings.Development.json
+
+# Ignore build outputs
+bin/
+obj/
