@@ -6,6 +6,10 @@
 **/appsettings.json
 **/appsettings.Development.json
 
-# Ignore build outputs
-bin/
-obj/
+# Ignore build outputs at any depth
+**/bin/
+**/obj/
+
+# Ignore Visual Studio user-specific files
+*.csproj.user
+**/*.csproj.user
